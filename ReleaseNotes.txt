@@ -1,0 +1,5 @@
+25-10-2021 
+* Updated to NorenRestAPI wrapper 1.0.9
+* GetQuote Open field is added
+* TPSeries call method added (intraday time price data)
+* Get Index List added

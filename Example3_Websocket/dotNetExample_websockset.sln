@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetExample_websockset", "dotNetExample_websockset.csproj", "{EE3DA1AA-F98D-41BA-B237-639D8E8C356C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE3DA1AA-F98D-41BA-B237-639D8E8C356C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3DA1AA-F98D-41BA-B237-639D8E8C356C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3DA1AA-F98D-41BA-B237-639D8E8C356C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3DA1AA-F98D-41BA-B237-639D8E8C356C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2ED2DCEA-3486-49F2-8C1A-CEA62256D92E}
+	EndGlobalSection
+EndGlobal

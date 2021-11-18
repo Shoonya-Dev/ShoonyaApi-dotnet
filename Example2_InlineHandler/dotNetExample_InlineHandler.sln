@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1401
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetExample_InlineHandler", "dotNetExample_InlineHandler.csproj", "{56CB91CF-F128-455A-8CCA-C3E21030BB0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56CB91CF-F128-455A-8CCA-C3E21030BB0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56CB91CF-F128-455A-8CCA-C3E21030BB0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56CB91CF-F128-455A-8CCA-C3E21030BB0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56CB91CF-F128-455A-8CCA-C3E21030BB0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0C2D312-3D61-4840-A6C7-C5E1B210520D}
+	EndGlobalSection
+EndGlobal
