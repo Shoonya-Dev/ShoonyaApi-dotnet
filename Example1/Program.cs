@@ -15,8 +15,8 @@ namespace NorenRestSample
     {
         #region dev  credentials
 
-        public const string endPoint = "";
-        public const string wsendpoint = "";
+        public const string endPoint = "https://shoonyatrade.finvasia.com/NorenWClientTP/";
+        public const string wsendpoint = "wss://shoonyatrade.finvasia.com/NorenWSTP/";
         public const string uid = "";
         public const string actid = "";
         public const string pwd = "";
