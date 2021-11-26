@@ -1,4 +1,4 @@
-# StarApi-dotnet
+# ShoonyaApi-dotnet
 
 [INTRODUCTION](#md_introduction)
 
@@ -57,7 +57,7 @@
 
 ### <a name="md_introduction"></a> INTRODUCTION: About the API
 
-The Api is a dotNet wrapper of the StarWebAPI whichoffers a combination of Rest calls and WebSocket for the purposes of Trading.
+The Api is a dotNet wrapper of the NorenAPI which offers a combination of Rest calls and WebSocket for the purposes of Trading.
 
 API is developed on VisualStudio2019 and uses .NetStandard 2.0 
 The dependency libraries are 
@@ -70,12 +70,12 @@ The namespace NorenRestApiWrapper and class NorenRestApi are of primary use and 
 
 To initialize the api the following are needed 
 
-endPoint:The api end point as instructed by ProStocks
-Appkey:The secretkey issued to you,donot append the userid to it.
+endPoint: The api end point as instructed by Finvasia
+Appkey  : The secretkey issued to you, donot append the userid to it.
 
-### MakingRequests
+### Making Requests
 
-We will be creating an object of NorenRestApi to make requests the callback is taken as an argument in the requestmethod.
+We will be creating an object of NorenRestApi to make requests, the callback is an argument of the request method.
 
 ```
 LoginMessage loginMessage = new LoginMessage();
@@ -92,7 +92,7 @@ nApi.SendLogin(Program.OnAppLoginResponse, endPoint, loginMessage);
 In the above example we are sending the Loginrequest,this method takes three arguments
 
 1. Callback: this is the function where the application will be handling the response
-2. Endpoint: NorenOMSaddress
+2. Endpoint: NorenOMS address
 3. MessageData: parameters of the request being made.
 
 The Callback is of signature
