@@ -25,11 +25,10 @@ namespace NorenRestSample
         public const string dob = "";
         public const string imei = "";
         public const string vc = "";
-
-
         public const string appkey = "";
         public const string newpwd = "";
         #endregion    
+        
 
         public static bool loggedin = false;
 
@@ -173,6 +172,25 @@ namespace NorenRestSample
                         case "FP":                            
                             nApi.SendForgotPassword(Handlers.OnResponseNOP,endPoint, uid, pan, dob);
                             break;
+                        case "WU":
+                            nApi.UnSubscribeToken("NSE", "22");
+                            break;
+                        case "WL":
+                            Quote quote = new Quote();
+                            quote.exch = "NSE";
+                            quote.token = "22";
+
+                            List<Quote> l = new List<Quote>();
+                            l.Add(quote);
+
+                            nApi.UnSubscribe(l);
+                            break;
+                        case "ST":
+                            NorenRestApi nApi_2 = new NorenRestApi();
+                            nApi_2.SetSession(endPoint, uid, pwd, nApi.UserToken);
+                            nApi_2.SendGetHoldings(Handlers.OnHoldingsResponse, actid, "C");
+                            nApi_2.SendGetQuote(Handlers.OnResponseNOP, "NSE", "22");
+                            break;
                         default:
                             // do other stuff...
                             ActionOptions();
@@ -187,6 +205,7 @@ namespace NorenRestSample
                 //Console.WriteLine("Press q to exit.");
             }            
         }
+        
 
         public static DateTime ConvertFromUnixTimestamp(double timestamp)
         {

@@ -63,7 +63,7 @@ The Api is a dotNet wrapper of the NorenAPI which offers a combination of Rest c
 API is developed on VisualStudio2019 and uses .NetStandard 2.0 
 The dependency libraries are 
   Newtonsoft.Json  9.0.1
-  Websocket.Client 4.3.21
+  
   
 The namespace NorenRestApiWrapper and class NorenRestApi are of primary use and interest
 

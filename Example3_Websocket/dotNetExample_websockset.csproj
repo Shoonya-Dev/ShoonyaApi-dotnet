@@ -35,7 +35,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NorenApiWrapper">
+    <Reference Include="NorenApiWrapper, Version=1.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Deps\NorenApiWrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -62,9 +63,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Websocket.Client, Version=4.3.0.0, Culture=neutral, PublicKeyToken=ae648c6d12f59b1b, processorArchitecture=MSIL">
-      <HintPath>packages\Websocket.Client.4.3.21\lib\netstandard2.0\Websocket.Client.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
