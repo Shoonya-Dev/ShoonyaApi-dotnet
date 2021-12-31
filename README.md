@@ -358,7 +358,12 @@ api.SendSearchScrip(Program.OnResponse, 'NSE', 'REL');
 ##  <a name="md_tpseries"></a> GetTimePriceData /ChartData
 
 ##### RequestDetails: public bool SendGetTPSeries(OnResponse response, string exch, string token, string starttime = null, string endtime = null, string interval = null)
-
+        response : application callback 
+        exch     : exchange     
+        token    : exchange identifier
+        starttime: Start time (seconds since 1 jan 1970)
+        endtime  : End Time (seconds since 1 jan 1970)
+        interval : Candle size in minutes (1,3,5,10,15,30,60,120,240)
 ##### ResponseDetails: list of TPSeriesItem
 
 
