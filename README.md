@@ -366,6 +366,18 @@ api.SendSearchScrip(Program.OnResponse, 'NSE', 'REL');
         interval : Candle size in minutes (1,3,5,10,15,30,60,120,240)
 ##### ResponseDetails: list of TPSeriesItem
 
+| Param | Type | Optional |Description |
+| --- | --- | --- | ---|
+| time | ```string``` | True | DD/MM/CCYY hh:mm:ss |
+| into | ```string``` | True | Interval Open |
+| inth | ```string``` | True | Interval High |
+| intl | ```string``` | True | Interval Low  |
+| intc | ```string``` | True | Interval Close  |
+| intvwap | ```string``` | True | Interval vwap  |
+| intv | ```string``` | True | Interval volume  |
+| v | ```string``` | True | volume  |
+| inoi | ```string``` | True | Interval oi change  |
+| oi | ```string``` | True | oi  |
 
 ## GetOptionChain
 
