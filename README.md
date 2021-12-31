@@ -8,6 +8,7 @@
 - [ForgotPassword](#md_forgot)
 - [ChangePassword](#md_changepwd)
 - [Logout](#md_logout)
+- [SetSession](#md_setsession)
 
 [WatchLists](#md_watchlist)
 - [UserDetails](#md_userdetails)
@@ -19,7 +20,7 @@
 - [SearchScrips](#md_searchscrips)
 - [GetSecurityInfo](#md_securityinfo)
 - [GetQuote](#_TOC_250012)
-- [GetTimePriceData(Chartdata)](#_TOC_250008)
+- [GetTimePriceData(Chartdata)](#md_tpseries)
 - [GetOptionChain](#_TOC_250007)
 - [GetIndexList](#_TOC_250011)
 - [ExchMsg](#_TOC_250019)
@@ -157,6 +158,19 @@ connect to the broker, only once this function has returned successfully can any
 
 ##### RequestDetails:Changepwd
 ##### ResponseDetails:ChangepwdResponse
+
+
+## <a name="md_setsession"></a> SetSession
+
+###### public bool SetSession(string endpoint, string uid, string pwd, string usertoken)
+
+##### RequestDetails:
+       endpoint : server endpoint
+       uid      : user     
+       pwd      : password
+       usertoken: session id from loginresponse. 
+
+##### ResponseDetails:True/False
 
 
 # <a name="md_watchlist"></a> WatchLists
@@ -340,10 +354,14 @@ api.SendSearchScrip(Program.OnResponse, 'NSE', 'REL');
 
 ##### RequestDetails:
 ##### ResponseDetails:
-## GetTimePriceData(Chartdata)
 
-##### RequestDetails:
-##### ResponseDetails:
+##  <a name="md_tpseries"></a> GetTimePriceData /ChartData
+
+##### RequestDetails: public bool SendGetTPSeries(OnResponse response, string exch, string token, string starttime = null, string endtime = null, string interval = null)
+
+##### ResponseDetails: list of TPSeriesItem
+
+
 ## GetOptionChain
 
 ##### RequestDetails:
