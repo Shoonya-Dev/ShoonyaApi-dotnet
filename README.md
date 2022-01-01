@@ -26,7 +26,7 @@
 - [ExchMsg](#_TOC_250019)
 
 [Orders and Trades](#md_ordersntrades)
-- [PlaceOrder](#_TOC_250028)
+- [PlaceOrder](#md_placeorder)
 - [ModifyOrder](#_TOC_250027)
 - [CancelOrder](#_TOC_250026)
 - [ExitSNOOrder](#_TOC_250025)
@@ -241,7 +241,7 @@ api.SendSearchScrip(Program.OnResponse, 'NSE', 'REL');
 
 # Order and Trades
 
-## PlaceOrder
+## <a name="md_placeorder"></a>  PlaceOrder
 
 ###### public bool SendPlaceOrder( OnResponse response,PlaceOrder order  )
 
