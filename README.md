@@ -125,6 +125,17 @@ The Response is casted to expected DataType ie in this example being LoginRespon
 connect to the broker, only once this function has returned successfully can any other operations be performed
 
 ##### RequestDetails: As Arguments
+```
+LoginMessage loginMessage = new LoginMessage();
+loginMessage.uid = uid;
+loginMessage.pwd = pwd;
+loginMessage.factor2 = pan;
+loginMessage.imei = "134243434";
+loginMessage.source = "API";
+loginMessage.appkey = appkey;
+
+nApi.SendLogin(Program.OnAppLoginResponse, endPoint, loginMessage);
+```
 ##### ResponseDetails:LoginResponse
 
 
@@ -235,7 +246,35 @@ api.SendSearchScrip(Program.OnResponse, 'NSE', 'REL');
 ###### public bool SendPlaceOrder( OnResponse response,PlaceOrder order  )
 
 ##### RequestDetails:PlaceOrder
-
+```
+| Param | Possible value | Description |
+| --- | --- | --- |
+uid*||Logged in User Id|
+actid*||Login users account ID|
+exch*|NSE  / NFO / BSE / MCX|Exchange (Select from ‘exarr’ Array provided in User Details response)|
+tsym*||Unique id of contract on which order to be placed. (use url encoding to avoid special char error for symbols like M&M)|
+qty*||Order Quantity |
+prc*||Order Price|
+trgprc||Only to be sent in case of SL / SL-M order.|
+dscqty||Disclosed quantity (Max 10% for NSE, and 50% for MCX)|
+prd*|C / M / H|Product name (Select from ‘prarr’ Array provided in User Details response, and if same is allowed for selected, exchange. Show product display name, for user to select, and send corresponding prd in API call)|
+trantype*|B / S|B -> BUY, S -> SELL|
+prctyp*|LMT / MKT  / SL-LMT / SL-MKT / DS / 2L / 3L||
+ret*|DAY / EOS / IOC |Retention type (Show options as per allowed exchanges) |
+remarks||Any tag by user to mark order.|
+bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
+blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
+trailprc||Trailing Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
+amo||Yes , If not sent, of Not “Yes”, will be treated as Regular order. |
+tsym2||Trading symbol of second leg, mandatory for price type 2L and 3L (use url encoding to avoid special char error for symbols like M&M)|
+trantype2||Transaction type of second leg, mandatory for price type 2L and 3L|
+qty2||Quantity for second leg, mandatory for price type 2L and 3L|
+prc2||Price for second leg, mandatory for price type 2L and 3L|
+tsym3||Trading symbol of third leg, mandatory for price type 3L (use url encoding to avoid special char error for symbols like M&M)|
+trantype3||Transaction type of third leg, mandatory for price type 3L|
+qty3||Quantity for third leg, mandatory for price type 3L|
+prc3||Price for third leg, mandatory for price type 3L|
+```
 ##### ResponseDetails:PlaceOrderResponse
 
 
