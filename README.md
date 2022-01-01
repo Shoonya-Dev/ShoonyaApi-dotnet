@@ -246,7 +246,7 @@ api.SendSearchScrip(Program.OnResponse, 'NSE', 'REL');
 ###### public bool SendPlaceOrder( OnResponse response,PlaceOrder order  )
 
 ##### RequestDetails:PlaceOrder
-```
+
 | Param | Possible value | Description |
 | --- | --- | --- |
 uid*||Logged in User Id|
@@ -274,7 +274,7 @@ tsym3||Trading symbol of third leg, mandatory for price type 3L (use url encodin
 trantype3||Transaction type of third leg, mandatory for price type 3L|
 qty3||Quantity for third leg, mandatory for price type 3L|
 prc3||Price for third leg, mandatory for price type 3L|
-```
+
 ##### ResponseDetails:PlaceOrderResponse
 
 
