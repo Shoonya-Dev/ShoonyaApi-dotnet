@@ -17,15 +17,15 @@ namespace NorenRestSample
 
         public const string endPoint = "https://shoonyatrade.finvasia.com/NorenWClientTP/";
         public const string wsendpoint = "wss://shoonyatrade.finvasia.com/NorenWSTP/";
-        public const string uid = "";
-        public const string actid = "";
-        public const string pwd = "";
+        public const string uid = "FA30417";
+        public const string actid = "FA30417";
+        public const string pwd = "Daiwik@9";
         public const string factor2 = dob;
-        public const string pan = "";
+        public const string pan = "AYJPB4562B";
         public const string dob = "";
-        public const string imei = "";
-        public const string vc = "";
-        public const string appkey = "";
+        public const string imei = "xyz12345";
+        public const string vc = "FA30417_U";
+        public const string appkey = "16592686bb6b07074ed91db0cac6c1a7";
         public const string newpwd = "";
         #endregion    
         
@@ -37,7 +37,9 @@ namespace NorenRestSample
         {
             Program.loggedin = true;
             nApi.SubscribeOrders(Handlers.OnOrderUpdate, uid);
-            nApi.SubscribeToken("NSE", "22");
+
+            for(var i= 52120; i < 20; i++)
+                nApi.SubscribeToken("NFO", i.ToString());
             
         }
         public static NorenRestApi nApi = new NorenRestApi();

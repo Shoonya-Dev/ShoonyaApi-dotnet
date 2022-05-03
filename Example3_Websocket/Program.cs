@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NorenRestApiWrapper;
 using System.Threading;
+using System.Configuration;
 
 namespace dotNetExample
 {
@@ -90,24 +91,73 @@ namespace dotNetExample
     {
         #region dev  credentials
 
-        public const string endPoint = "https://shoonyatrade.finvasia.com/NorenWClientTP/";
-        public const string wsendpoint = "wss://shoonyatrade.finvasia.com/NorenWSTP/";
-        public const string uid = "";
-        public const string actid = "";
-        public const string pwd = "";
-        public const string factor2 = dob;
-        public const string pan = "";
-        public const string dob = "";
-        public const string imei = "";
-        public const string vc = "";
-        public const string appkey = "";
-        public const string newpwd = "";
+        public static string endPoint = "";
+        public static string wsendpoint = "";
+        public static string uid = "";
+        public static string actid = "";
+        public static string pwd = "";
+        public static string dob = "";  // this is shared by AMith along with id?
+        public static string factor2 = dob;
+        public static string pan = "";
+        public static string imei = "";
+        public static string vc = "";
+                
+        public static string appkey = "";
+        public static string newpwd = "";
         #endregion      
 
         public static NorenRestApi nApi = new NorenRestApi();
         public static Dictionary<string, NorenFeed> mapMarketData = new Dictionary<string, NorenFeed>();
+
+        static bool ReadConfig()
+        {
+            if (ConfigurationManager.AppSettings.Get("endpoint") == null)
+            {
+                return false;                
+            }
+            if (ConfigurationManager.AppSettings.Get("wsendpoint") == null)
+            {
+                return false;
+            }
+            if (ConfigurationManager.AppSettings.Get("uid") == null)
+            {
+                return false;                
+            }
+            if (ConfigurationManager.AppSettings.Get("pwd") == null)
+            {
+                return false;                
+            }
+            if (ConfigurationManager.AppSettings.Get("factor2") == null)
+            {
+                return false;
+            }
+            if (ConfigurationManager.AppSettings.Get("vc") == null)
+            {
+                return false;                
+            }
+            if (ConfigurationManager.AppSettings.Get("appkey") == null)
+            {
+                return false;
+            }
+            Program.endPoint = ConfigurationManager.AppSettings.Get("endpoint");
+            Program.wsendpoint = ConfigurationManager.AppSettings.Get("wsendpoint");
+            Program.uid = ConfigurationManager.AppSettings.Get("uid");
+            Program.actid = Program.uid;
+            Program.pwd = ConfigurationManager.AppSettings.Get("pwd");
+            Program.factor2 = ConfigurationManager.AppSettings.Get("factor2");
+            Program.vc = ConfigurationManager.AppSettings.Get("vc");
+            Program.appkey = ConfigurationManager.AppSettings.Get("appkey");
+            return true;
+        }
+
         static void Main(string[] args)
         {
+            if (ReadConfig() == false)
+            {
+                Console.WriteLine("config file values failed");
+                return;
+            }
+
             LoginMessage loginMessage = new LoginMessage();
             loginMessage.apkversion = "1.0.0";
             loginMessage.uid = uid;
@@ -125,17 +175,37 @@ namespace dotNetExample
 
             LoginResponse loginResponse = responseHandler.baseResponse as LoginResponse;
             Console.WriteLine("app handler :" + responseHandler.baseResponse.toJson());
-            
+            nApi.onStreamConnectCallback = Program.OnStreamConnect;
+            nApi.onStreamCloseCallback = Program.onStreamClose;
+            nApi.onStreamErrorCallback = Program.onStreamError;
             //only after login success connect to websocket for market/order updates
-            if (nApi.ConnectWatcher(wsendpoint, Program.OnFeed, null))
+            if (nApi.ConnectWatcher(wsendpoint, Program.OnFeed, null)) 
             { 
                 //wait for connection
-                Thread.Sleep(2000);
+                //Thread.Sleep(2000);
                 //send subscription for reliance
-                nApi.SubscribeToken("NSE", "2885");
+                //nApi.SubscribeToken("NSE", "2885");
             }
-
+            
             Console.ReadLine();
+            nApi.CloseWatcher();
+        }
+        public static void OnStreamConnect(NorenStreamMessage msg)
+        {
+            nApi.SubscribeTokenDepth("NSE", "22");
+
+        }
+
+        public static void onStreamError(string msg)
+        {
+            Console.WriteLine($"App WS error: {msg}");
+
+        }
+
+        public static void onStreamClose()
+        {
+            Console.WriteLine("App Webscoket close");
+
         }
 
         public static void OnFeed(NorenFeed Feed)
@@ -167,8 +237,7 @@ namespace dotNetExample
                     Console.WriteLine($"Feed processed: {mapMarketData[key].toJson()}"); 
                 }
             }
+            
         }
-
-        
     }
 }
