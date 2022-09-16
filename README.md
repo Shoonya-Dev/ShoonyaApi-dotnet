@@ -575,7 +575,7 @@ Request Details :
 |prc*||Order Price|
 |trgprc||Only to be sent in case of SL / SL-M order.|
 |dscqty||Disclosed quantity (Max 10% for NSE, and 50% for MCX)|
-|prd*|C / M / H|Product name (Select from ‘prarr’ Array provided in User Details response, and if same is allowed for selected, exchange. Show product display name, for user to select, and send corresponding prd in API call)|
+|prd*|C / M / I / B / H|Product name (Select from ‘prarr’ Array provided in User Details response, and if same is allowed for selected, exchange. Show product display name, for user to select, and send corresponding prd in API call) "C" For CNC, "M" FOR NRML, "I" FOR MIS, "B" FOR BRACKET ORDER, "H" FOR COVER ORDER|
 |trantype*|B / S|B -> BUY, S -> SELL|
 |prctyp*|LMT / MKT  / SL-LMT / SL-MKT / DS / 2L / 3L||||
 |ret*|DAY / EOS / IOC |Retention type (Show options as per allowed exchanges) |
@@ -1455,3 +1455,8 @@ This is auto subscribed by the api
 | remarks | | Useraddedtag,whileplacingorder |
 | dscqty | | Disclosedquantity |
 | trgprc | | TriggerpriceforSLorders |
+
+
+## Contact Us
+For any queries, feel free to reach us , email at apisupport@finvasia.in or call at 0172-4740000
+& also Just visit our website there is a Livechat option
