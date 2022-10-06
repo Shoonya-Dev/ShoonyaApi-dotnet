@@ -89,10 +89,10 @@ Example:
 LoginMessage loginMessage = new LoginMessage();
 loginMessage.uid = uid;
 loginMessage.pwd = pwd;
-loginMessage.factor2 = pan;
+loginMessage.factor2 = OTP/TOTP;
 loginMessage.imei = "134243434";
 loginMessage.source = "API";
-loginMessage.appkey = appkey;
+loginMessage.appkey = API key;
 
 nApi.SendLogin(Program.OnAppLoginResponse, endPoint, loginMessage);
 ```
@@ -122,9 +122,9 @@ Request Details :
 |apkversion*||Application version.|
 |uid*||User Id of the login user|
 |pwd*||Sha256 of the user entered password.|
-|factor2*||DOB or PAN as entered by the user. (DOB should be in DD-MM-YYYY)|
+|factor2*||OTP or TOTP as entered by the user.(User Needs to be generated from the Shoonya app)|
 |vc*||Vendor code provided by noren team, along with connection URLs|
-|appkey*||Sha256 of  uid|vendor_key|
+|appkey*||Sha256 Encryption with the format of Example (uid Single Pipeline API key) When you have created the encryption key all must be without spaces.|
 |imei*||Send mac if users logs in for desktop, imei is from mobile|
 |addldivinf||Optional field, Value must be in below format:|iOS - iosInfo.utsname.machine - iosInfo.systemVersion|Android - androidInfo.model - androidInfo.version|examples:|iOS - iPhone 8.0 - 9.0|Android - Moto G - 9 PKQ1.181203.01|
 |ipaddr||Optional field|
@@ -569,13 +569,13 @@ Request Details :
 | --- | --- | ---|
 |uid*||Logged in User Id|
 |actid*||Login users account ID|
-|exch*|NSE  / NFO / BSE / MCX|Exchange (Select from ‘exarr’ Array provided in User Details response)|
-|tsym*||Unique id of contract on which order to be placed. (use url encoding to avoid special char error for symbols like M&M)|
-|qty*||Order Quantity |
+|exch*|NSE / NFO / CDS / MCX / BSE|Exchange (Select from ‘exarr’ Array provided in User Details response)|
+|tsym*|RELIANCE-EQ / L&TFH29SEP22P97 / USDINR25NOV22C76 / CRUDEOIL16NOV22P5400 / WHIRLPOOL|Unique id of contract on which order to be placed. (use url encoding to avoid special char error for symbols like M&M)|
+|qty*|RELIANCE-EQ:-1 / NIFTY:-50 / BANKNIFTY:-25|Order Quantity |
 |prc*||Order Price|
 |trgprc||Only to be sent in case of SL / SL-M order.|
 |dscqty||Disclosed quantity (Max 10% for NSE, and 50% for MCX)|
-|prd*|C / M / H|Product name (Select from ‘prarr’ Array provided in User Details response, and if same is allowed for selected, exchange. Show product display name, for user to select, and send corresponding prd in API call)|
+|prd*|C / M / I / B / H|Product name (Select from ‘prarr’ Array provided in User Details response, and if same is allowed for selected, exchange. Show product display name, for user to select, and send corresponding prd in API call) "C" For CNC, "M" For NRML, "I" For MIS, "B" For BRACKET ORDER, "H" For COVER ORDER|
 |trantype*|B / S|B -> BUY, S -> SELL|
 |prctyp*|LMT / MKT  / SL-LMT / SL-MKT / DS / 2L / 3L||||
 |ret*|DAY / EOS / IOC |Retention type (Show options as per allowed exchanges) |
@@ -1455,3 +1455,8 @@ This is auto subscribed by the api
 | remarks | | Useraddedtag,whileplacingorder |
 | dscqty | | Disclosedquantity |
 | trgprc | | TriggerpriceforSLorders |
+
+
+## Contact Us
+For any queries, feel free to reach us , email at apisupport@finvasia.in or call at 0172-4740000
+& also Just visit our website there is a Livechat option
