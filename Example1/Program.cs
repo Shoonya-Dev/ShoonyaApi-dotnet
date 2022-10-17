@@ -15,20 +15,21 @@ namespace NorenRestSample
     {
         #region dev  credentials
 
-        public const string endPoint = "https://shoonyatrade.finvasia.com/NorenWClientTP/";
-        public const string wsendpoint = "wss://shoonyatrade.finvasia.com/NorenWSTP/";
-        public const string uid = "FA30417";
-        public const string actid = "FA30417";
-        public const string pwd = "Daiwik@9";
+        public const string endPoint = "https://api.shoonya.com/NorenWClientTP/";
+        public const string wsendpoint = "wss://api.shoonya.com/NorenWSTP/";
+        public const string uid = "";
+        public const string actid = "";
+        public const string pwd = "";
         public const string factor2 = dob;
-        public const string pan = "AYJPB4562B";
+        public const string pan = "";
         public const string dob = "";
-        public const string imei = "xyz12345";
-        public const string vc = "FA30417_U";
-        public const string appkey = "16592686bb6b07074ed91db0cac6c1a7";
-        public const string newpwd = "";
-        #endregion    
+        public const string imei = "";
+        public const string vc = "";
         
+        public const string appkey = "";
+        public const string newpwd = "";
+        #endregion
+
 
         public static bool loggedin = false;
 
