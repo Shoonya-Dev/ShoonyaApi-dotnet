@@ -1456,7 +1456,25 @@ This is auto subscribed by the api
 | dscqty | | Disclosedquantity |
 | trgprc | | TriggerpriceforSLorders |
 
+## Symbol Master:- Check the Symbol Format from Below mention Symbol Master urls
 
+NSE - Capital Market
+https://api.shoonya.com/NSE_symbols.txt.zip
+
+NSE - Equity Derivatives
+https://api.shoonya.com/NFO_symbols.txt.zip
+
+NSE - Currency Derivatives
+https://api.shoonya.com/CDS_symbols.txt.zip
+
+MCX - Commodity
+https://api.shoonya.com/MCX_symbols.txt.zip
+
+BSE - Capital Market
+https://api.shoonya.com/BSE_symbols.txt.zip
+
+BSE - Equity Derivatives
+https://api.shoonya.com/BFO_symbols.txt.zip
 ## Contact Us
 For any queries, feel free to reach us , email at apisupport@finvasia.in or call at 0172-4740000
 & also Just visit our website there is a Livechat option
