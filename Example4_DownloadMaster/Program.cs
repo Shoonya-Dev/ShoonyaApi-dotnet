@@ -27,11 +27,13 @@ namespace dl_master
         }
         static void Main(string[] args)
         {
-            string[] masters = new string[4];
-            masters[0] = "https://shoonya.finvasia.com/NSE_symbols.txt.zip";
-            masters[1] = "https://shoonya.finvasia.com/NFO_symbols.txt.zip";
-            masters[2] = "https://shoonya.finvasia.com/CDS_symbols.txt.zip";
-            masters[3] = "https://shoonya.finvasia.com/MCX_symbols.txt.zip";
+            string[] masters = new string[6];
+            masters[0] = "https://api.shoonya.com/NSE_symbols.txt.zip";
+            masters[1] = "https://api.shoonya.com/NFO_symbols.txt.zip";
+            masters[2] = "https://api.shoonya.com/CDS_symbols.txt.zip";
+            masters[3] = "https://api.shoonya.com/MCX_symbols.txt.zip";
+            masters[4] = "https://api.shoonya.com/BSE_symbols.txt.zip";
+            masters[5] = "https://api.shoonya.com/BFO_symbols.txt.zip";
 
             foreach(var master in masters)
                 DownloadFile(master);
