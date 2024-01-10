@@ -34,6 +34,7 @@ namespace dl_master
             masters[3] = "https://api.shoonya.com/MCX_symbols.txt.zip";
             masters[4] = "https://api.shoonya.com/BSE_symbols.txt.zip";
             masters[5] = "https://api.shoonya.com/BFO_symbols.txt.zip";
+            masters[6] = "https://api.shoonya.com/NCX_symbols.txt.zip";
 
             foreach(var master in masters)
                 DownloadFile(master);
