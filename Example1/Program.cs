@@ -86,6 +86,15 @@ namespace NorenRestSample
                         case "D":
                             ActionGetOptionChain();
                             break;
+                        case "E":
+                            DateTime tdy = DateTime.Now.Date;
+                            double end = ConvertToUnixTimestamp(tdy);
+                            DateTime sttdy = tdy.AddDays(-7);
+                            double begin = ConvertToUnixTimestamp(sttdy);
+                            //start and end time are optional
+                            //here we are getting one day's data
+                            nApi.SendGetEodChartData(Handlers.OnResponseNOP, "NSE", "RELIANCE-EQ", begin.ToString(), end.ToString());
+                            break;
                         case "G":
                             nApi.SendGetHoldings(Handlers.OnHoldingsResponse, actid, "C");
                             break;
@@ -195,6 +204,9 @@ namespace NorenRestSample
                             nApi_2.SetSession(endPoint, uid, pwd, nApi.UserToken);
                             nApi_2.SendGetHoldings(Handlers.OnHoldingsResponse, actid, "C");
                             nApi_2.SendGetQuote(Handlers.OnResponseNOP, "NSE", "22");
+                            break;
+                        case "OP":
+                            ActionGetOptionGreeks();
                             break;
                         default:
                             // do other stuff...
@@ -358,6 +370,17 @@ namespace NorenRestSample
 
         }
 
+        public static void ActionGetOptionGreeks()
+        {
+            string expiry = "24-NOV-2022";
+            string strike = "150";
+            string spot_price = "200";
+            string int_rate = "100";
+            string volality = "10";
+            string option_type = "CE";
+
+            nApi.SendGetOptionGreek(Handlers.OnResponseNOP, expiry, strike, spot_price, int_rate, volality, option_type);
+        }
         public static void ActionOptions()
         {
             Console.WriteLine("Q: logout.");
@@ -377,8 +400,10 @@ namespace NorenRestSample
             Console.WriteLine("P: position convert");
             Console.WriteLine("U: get user details");
             Console.WriteLine("V: get intraday 1 min price data");
+            Console.WriteLine("E: get eod/daily price data");
             Console.WriteLine("I: get list of index names");
             Console.WriteLine("D: get Option Chain");
+            Console.WriteLine("OP: get Option Greek");
         }
         #endregion
     }
